@@ -127,14 +127,13 @@ class Biaoshi_Plugin implements Typecho_Plugin_Interface
     </style>
     <div class="nuoyis-footer" style="">
 HTML;
-    if(!Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof == "off")
-     if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gxBiaoshi != ""):
+     if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof != "off" && Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gxBiaoshi != ""):
     $gxBiaoshi = Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gxBiaoshi;
     $Biaoshimu.= <<<HTML
     备案号:<a href="//Biaoshi.miit.gov.cn">{$gxBiaoshi}</a> | 
 HTML;
     endif;
-    if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi != ""): 
+    if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof != "off" && Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi != ""): 
     if (is_string(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi) || !empty(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi)):
     $gaBiaoshi1 = $gaBiaoshi2 = '';
     if (is_string(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi) || !empty(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi)){
@@ -151,7 +150,7 @@ HTML;
         <img src="{$dir}/img/beian.png">{$gaBiaoshi1}<a href="//www.Biaoshi.gov.cn/portal/registerSystemInfo?recordcode={$gaBiaoshi2}">{$gaBiaoshi2}</a>号 
 HTML;
     endif;endif;
-    if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi != ""): 
+    if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof != "off" && Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi != ""): 
     if (is_string(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi) || !empty(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi)):
     $moeBiaoshi1 = $moeBiaoshi2 = '';
     if (is_string(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi) || !empty(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi)){
