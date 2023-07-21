@@ -130,8 +130,9 @@ HTML;
      if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof != "off" && Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gxBiaoshi != ""):
     $gxBiaoshi = Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gxBiaoshi;
     $Biaoshimu.= <<<HTML
-    备案号:<a href="//Biaoshi.miit.gov.cn">{$gxBiaoshi}</a> | 
+    备案号:<a href="//Biaoshi.miit.gov.cn">{$gxBiaoshi}</a>
 HTML;
+    if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi != "") $Biaoshimu.= " | ";
     endif;
     if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof != "off" && Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi != ""): 
     if (is_string(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi) || !empty(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi)):
@@ -149,6 +150,7 @@ HTML;
     $Biaoshimu.= <<<HTML
         <img src="{$dir}/img/beian.png">{$gaBiaoshi1}<a href="//www.Biaoshi.gov.cn/portal/registerSystemInfo?recordcode={$gaBiaoshi2}">{$gaBiaoshi2}</a>号 
 HTML;
+    if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi != "") $Biaoshimu.= " | ";
     endif;endif;
     if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof != "off" && Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi != ""): 
     if (is_string(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi) || !empty(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi)):
@@ -164,14 +166,16 @@ HTML;
       }
     }
     $Biaoshimu.= <<<HTML
-         | {$moeBiaoshi1}<a href="https://icp.gov.moe/?keyword=<?=$moeBiaoshi2; ?>" target="_blank">{$moeBiaoshi2}</a>号
+        {$moeBiaoshi1}<a href="https://icp.gov.moe/?keyword=<?=$moeBiaoshi2; ?>" target="_blank">{$moeBiaoshi2}</a>号
 HTML;
     endif;endif;
     if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->upyun == "on")
+    {
     if(!Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof == "on") $Biaoshimu.= " | ";
     $Biaoshimu.= <<<HTML
     全站由<a target="_BLANK" href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referral" title="又拍云CDN" alt="又拍云CDN"><img src="{$dir}/img/upyun_logo.webp" style="margin-bottom: -10px;margin-left: 3px" alt="CDN" width="70" height="35" data-ll-status="loading" class="entered loading"></a>提供CDN加速/云存储服务</div>
 HTML;
+    }
     $Biaoshimu.= <<<HTML
     </div>
 HTML;
