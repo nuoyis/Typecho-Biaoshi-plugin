@@ -130,7 +130,7 @@ HTML;
      if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->Biaoshiof != "off" && Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gxBiaoshi != ""):
     $gxBiaoshi = Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gxBiaoshi;
     $Biaoshimu.= <<<HTML
-    备案号:<a href="//Biaoshi.miit.gov.cn">{$gxBiaoshi}</a>
+    备案号:<a href="//beian.miit.gov.cn">{$gxBiaoshi}</a>
 HTML;
     if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi != "") $Biaoshimu.= " | ";
     endif;
@@ -148,7 +148,7 @@ HTML;
       } 
     }
     $Biaoshimu.= <<<HTML
-        <img src="{$dir}/img/beian.png">{$gaBiaoshi1}<a href="//www.Biaoshi.gov.cn/portal/registerSystemInfo?recordcode={$gaBiaoshi2}">{$gaBiaoshi2}</a>号 
+        <img src="{$dir}/img/beian.png">{$gaBiaoshi1}<a href="//www.beian.gov.cn/portal/registerSystemInfo?recordcode={$gaBiaoshi2}">{$gaBiaoshi2}</a>号 
 HTML;
     if(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi != "") $Biaoshimu.= " | ";
     endif;endif;
