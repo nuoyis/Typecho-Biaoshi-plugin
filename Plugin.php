@@ -65,7 +65,7 @@ class Biaoshi_Plugin implements Typecho_Plugin_Interface
         $gxBiaoshi->setAttribute('id', 'gxBiaoshi');
         $form->addInput($gxBiaoshi);
     
-        $gaBiaoshi = new Typecho_Widget_Helper_Form_Element_Text('gaBiaoshi', NULL,_t(''), _t('公安备案'), _t('仅填写备案号即可不懂请点击<a href="http://wap.qianfanyun.com/help/1397">这里</a>'));
+        $gaBiaoshi = new Typecho_Widget_Helper_Form_Element_Text('gaBiaoshi', NULL,_t(''), _t('公安备案'), _t('填写格式:省的一个字缩写+公网安备+备案号 不懂请点击<a href="http://wap.qianfanyun.com/help/1397">这里</a>'));
         $form->addInput($gaBiaoshi);
     
         $moeBiaoshi = new Typecho_Widget_Helper_Form_Element_Text('moeBiaoshi', NULL,_t(''), _t('萌国备案'), _t('娱乐使用，申请点击<a href="https://icp.gov.moe/">这里</a>'));
@@ -142,7 +142,7 @@ HTML;
     $char = substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi, $i, 1);
     if (ctype_digit($char)) {
     $gaBiaoshi1=substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi, 0, $i);
-    $gaBiaoshi2=substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi, $i, strlen(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi)-$i-3);
+    $gaBiaoshi2=mb_substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi, 5, 17, 'UTF-8');
     break;
         }
       } 
@@ -160,7 +160,7 @@ HTML;
     $char = substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi, $i, 1);
     if (ctype_digit($char)) {
     $moeBiaoshi1=substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi, 0, $i);
-    $moeBiaoshi2=substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi, $i, strlen(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->moeBiaoshi)-$i-3);
+    $gaBiaoshi2=mb_substr(Typecho_Widget::widget('Widget_Options')->Plugin('Biaoshi')->gaBiaoshi, 5, 13, 'UTF-8');
     break;
         }
       }
